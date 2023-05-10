@@ -1,7 +1,7 @@
 from django.urls import path
-from task_api import views
+from .views import ListarCriarTask, DetalheAtualizarRemoverTask
 
 urlpatterns = [
-    path('task_api/', views.task_list),
-    path('task_api/<int:pk>/', views.task_detail),
+    path('tarefas/', ListarCriarTask.as_view(), name= 'listar-criar-tarefa'),
+    path('tarefas/<int:pk>', DetalheAtualizarRemoverTask.as_view(), name='detalhar-atualizar-remover'),
 ]
