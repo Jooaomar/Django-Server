@@ -1,6 +1,7 @@
 from rest_framework.views import APIView, Response,status
 from rest_framework.parsers import JSONParser
 from django.http import Http404
+from rest_framework import generics
 
 from .models import Task
 from .serializers import TasksSerializer
@@ -45,3 +46,20 @@ class DetalheAtualizarRemoverTask(APIView):
         filme = self.get_filme(pk)
         filme.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+    
+
+class ListStituacaoNivelPrioridade(generics.ListAPIView):
+    serializer_class = TasksSerializer
+    
+    def get_queryset(self):
+        queryset = Task.objects.all()
+        nivel = self.request.query_params.get('nivel')
+        situacao = self.request.query_params.get('situacao')
+        prioridade = self.request.query_params.get('prioridade')
+        if nivel:
+            queryset = queryset.filter(nivel=nivel)
+        if situacao:
+            queryset = queryset.filter(situacao=situacao)
+        if prioridade:
+            queryset = queryset.filter(prioridade=prioridade)
+        return queryset
