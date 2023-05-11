@@ -17,3 +17,6 @@ class Task(models.Model):
     nivel = models.IntegerField(choices=CHOICE_NIVEL)
     situacao = models.CharField(max_length=12)
     prioridade = models.IntegerField(choices=CHOICE_PRIORIDADE)
+
+    class Meta:
+        ordering = ['created']
