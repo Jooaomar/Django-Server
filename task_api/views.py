@@ -1,5 +1,4 @@
 from rest_framework.views import APIView, Response,status
-from rest_framework.parsers import JSONParser
 from django.http import Http404
 from rest_framework import generics
 
@@ -48,7 +47,7 @@ class DetalheAtualizarRemoverTask(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
     
 
-class ListStituacaoNivelPrioridade(generics.ListAPIView):
+class ListSituacaoNivelPrioridade(generics.ListAPIView):
     serializer_class = TasksSerializer
     
     def get_queryset(self):
@@ -63,3 +62,10 @@ class ListStituacaoNivelPrioridade(generics.ListAPIView):
         if prioridade:
             queryset = queryset.filter(prioridade=prioridade)
         return queryset
+    def list(self, request, *args, **kwargs):
+        queryset = self.get_queryset()
+        if not queryset.exists():
+            return Response({"detail": "Nenhum resultado encontrado."}, status=status.HTTP_404_NOT_FOUND)
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
