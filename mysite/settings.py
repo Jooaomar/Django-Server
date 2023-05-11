@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'task_api'
+    'task_api',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -54,6 +55,14 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "https://django-server-production-6f83.up.railway.app/task_api/",
+    "https://statuesque-maamoul-a0e785.netlify.app/",
+    "http://127.0.0.1:8000",
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -82,12 +91,12 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 
 # Configuração do banco de dados para o ambiente de desenvolvimento
-"""DATABASES = {
+'''DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-}"""
+}'''
 
 # Configuração do banco de dados para o ambiente de produção
 
