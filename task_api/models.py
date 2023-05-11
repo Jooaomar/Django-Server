@@ -11,7 +11,7 @@ CHOICE_PRIORIDADE = [(1, 1),
                      (3,3)]
 
 class Task(models.Model):
-
+    created = models.DateTimeField(auto_now_add=True)
     descricao = models.CharField(max_length=200, blank=True, default='')
     responsavel = models.CharField(max_length=250, blank=True, default='')
     nivel = models.IntegerField(choices=CHOICE_NIVEL)
