@@ -60,8 +60,8 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "https://django-server-production-6f83.up.railway.app/task_api/",
-    "https://serene-cranachan-7092d3.netlify.app/",
+    "https://django-server-production-6f83.up.railway.app",
+    "https://serene-cranachan-7092d3.netlify.app",
     "http://127.0.0.1:8000",
 ]
 
@@ -147,7 +147,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Default primary key field type
