@@ -65,6 +65,7 @@ CORS_ALLOWED_ORIGINS = [
     "https://django-server-production-6f83.up.railway.app",
     "https://serene-cranachan-7092d3.netlify.app",
     "http://127.0.0.1:8000",
+    "http://localhost:3000"
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -93,12 +94,12 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 
 # Configuração do banco de dados para o ambiente de desenvolvimento
-'''DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}'''
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # Configuração do banco de dados para o ambiente de produção
 
