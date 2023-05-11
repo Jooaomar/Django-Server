@@ -5,11 +5,6 @@ CHOICE_NIVEL = [(1, 1),
                 (5,5),
                 (8,8)]
 
-CHOICE_SITUACAO =  [('NOVA','NOVA'),
-                    ('EM ANDAMENTO','EM ANDAMENTO'),
-                    ('PENDENTE', 'PENDENTE'),
-                    ('RESOLVIDA','RESOLVIDA'),
-                    ('CANCELADO','CANCELADO')]
 
 CHOICE_PRIORIDADE = [(1, 1),
                      (2,2),
@@ -17,8 +12,8 @@ CHOICE_PRIORIDADE = [(1, 1),
 
 class Task(models.Model):
 
-    descricao = models.TextField()
+    descricao = models.CharField(max_length=200, blank=True, default='')
     responsavel = models.CharField(max_length=250, blank=True, default='')
-    nivel = models.IntegerField(max_length=1, choices=CHOICE_NIVEL)
-    situacao = models.CharField(max_length=12,choices=CHOICE_SITUACAO)
-    prioridade = models.IntegerField(max_length=1, choices=CHOICE_PRIORIDADE)
+    nivel = models.IntegerField(choices=CHOICE_NIVEL)
+    situacao = models.CharField(max_length=12)
+    prioridade = models.IntegerField(choices=CHOICE_PRIORIDADE)
