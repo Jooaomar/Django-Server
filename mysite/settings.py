@@ -61,7 +61,7 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "https://django-server-production-6f83.up.railway.app/task_api/",
-    "https://statuesque-maamoul-a0e785.netlify.app/",
+    "https://serene-cranachan-7092d3.netlify.app/",
     "http://127.0.0.1:8000",
 ]
 
